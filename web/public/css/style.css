@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 45px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.item-wrapper {
+    border: 1px green solid;
+    border-radius: 10px;
+    margin: 10px 40px;
+    padding: 20px;
+    font-size: 30px;
+}
+
+.active {
+    background-color: green;
+    color: white;
+}
+
+.active small {
+    color: white!important;
+}
+
+small {
+    font-size: 15px;
+    margin-right: 5px;
+    color: green;
+    font-style: italic;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-item-1 {
+    flex: 1;
+}
+
+.flex-item-2 {
+    flex: 2;
+}

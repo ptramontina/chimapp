@@ -1,0 +1,29 @@
+<html>
+
+  <head>
+    <title>ChimApp</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  </head>
+
+  <body>
+    <h1>ChimApp</h1>
+    <div id="app">
+      <div v-for="(user, index) in users" :key="index" >
+        <div :class="['flex', 'item-wrapper', user.id === current ? 'active' : '']">
+          <div class="flex-item-2">{{user.name}}</div>
+          <div class="flex-item-1">
+            <div class="flex">
+              <div class="flex-item-2"><span v-if="user.id === current"><small>Current -</small>{{timer}}</span></div>
+              <div class="flex-item-1"><small>Average -</small>{{user.average}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/static/js/axios.min.js"></script>
+  <script src="/static/js/vue.min.js"></script>
+  <script src="/static/js/moment.min.js"></script>
+  <script src="/static/js/app.js"></script>
+</html>
