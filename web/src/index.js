@@ -4,8 +4,11 @@ const MongoClient = require('mongodb').MongoClient;
 const io = require('socket.io');
 const path = require('path')
 
-let app = express();
+const app = express();
 const port = 3000
+
+const queueRouter = require('./routers/queue')
+const userRouter = require('./routers/user')
 
 MongoClient.connect('mongodb://localhost:27017/', { useUnifiedTopology: true })
 .then(client =>{
@@ -19,9 +22,8 @@ app.use('/static', express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json())
 
-const queueRouter = require('./routers/queue')
-
 app.use(queueRouter)
+app.use(userRouter)
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
